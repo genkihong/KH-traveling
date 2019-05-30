@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高雄旅遊資訊網</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheets/all.css">
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid jumbotron-bg bg-cover mb-0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h1 class="text-light text-center">高雄旅遊資訊</h1>
+          <select id="zone" class="form-control">
+            <option value="" selected disabled>-- 請選擇行政區 --</option>
+            <option value="全部行政區">全部行政區--</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container header">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="sub-menu box-shadow">
+          <p class="text-left">熱門行政區</p>
+          <div id="hotZone" class="d-md-flex justify-content-around text-center">
+            <button class="btn btn-lg btn-first text-white mb-3 mb-md-0">三民區</button>
+            <button class="btn btn-lg btn-second text-white mb-3 mb-md-0">苓雅區</button>
+            <button class="btn btn-lg btn-third text-white">新興區</button>
+            <button class="btn btn-lg btn-fourth text-white">左營區</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="line">
+      <div class="icon"></div>
+    </div>
+    <div id="title" class="text-center my-5"></div>
+    <div class="row travel-info"></div>
+    <div>
+      <a href="#" class="top">
+        <img src="https://upload.cc/i1/2019/02/02/PMGswm.png" width="24">
+      </a>
+    </div>
+  </div>
+<!--   <div class="container d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true"><i class="fas fa-angle-left fa-lg"></i></span>
+          </a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true"><i class="fas fa-angle-right fa-lg"></i></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div> -->
+  
+  <footer class="text-center travel-footer">
+    <p class="text-white">高雄旅遊網</p>
+    <span>資料來源 : 高雄市政府</span>
+  </footer>
+  
+  
+
+  <script src="js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
