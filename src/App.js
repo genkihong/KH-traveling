@@ -5,7 +5,6 @@ import HotZone from './components/HotZone';
 import Paginations from './components/Paginations';
 import Footer from './components/Footer';
 // import CardList from './components/CardList';
-
 import './App.css';
 
 class App extends React.Component {
@@ -33,8 +32,7 @@ class App extends React.Component {
     this.UniZone();
     this.FilterData('全部行政區');
   }
-
-  // 取得所有行政區
+  // 下拉式選單
   UniZone = () => {
     const zip = this.state.data.map((value) => {
       return value.Zone;
@@ -55,6 +53,7 @@ class App extends React.Component {
     e.preventDefault();
     this.FilterData(select);
   }
+  // 切換分頁
   handleClickPage = (event) => {
     event.preventDefault();
     // console.log('id', event.target.id);
@@ -81,10 +80,9 @@ class App extends React.Component {
     });  
   }
   
-  render() {
-    
+  render() {  
     return (
-      <div>
+      <>
         <Header
           dropMenu={this.state.dropMenu}
           handleChange={this.handleChange}
@@ -104,7 +102,7 @@ class App extends React.Component {
           handleClickPage={this.handleClickPage}
         />
         <Footer />
-      </div>
+      </>
     );
   }
 }

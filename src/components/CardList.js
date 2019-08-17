@@ -3,7 +3,7 @@ import { Container, Row } from 'reactstrap';
 import CardItem from './CardItem';
 
 const CardList = ({ filterData, currentZone }) => {
-  console.log('從 App 傳來的資料', filterData);
+  // console.log('從 App 傳來的資料', filterData);
 /*  const renderCardList = FilterData.map((item) => {
     return (
       <CardItem

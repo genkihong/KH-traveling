@@ -24,7 +24,6 @@ const Paginations = ({selectData, currentZone, currentPage, perPage, handleClick
   for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
-
   // const renderPagination = pageNumbers.map((number) => {
   //   return (
   //     <PaginationItem key={number} active={currentPage === number }>
@@ -36,7 +35,6 @@ const Paginations = ({selectData, currentZone, currentPage, perPage, handleClick
   // // });
   // console.log('總共有:', totalPage, '頁');
   // console.log('第', currentPage, '頁');
-
   return (
     <>
     <Container>

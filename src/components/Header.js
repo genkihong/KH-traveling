@@ -7,14 +7,12 @@ class Header extends React.Component {
     super(props);
 
     this.selectRef = React.createRef();// 建立Refs
-  }
-  
+  }  
   // onSelectChange = () => {
   //   const value = this.selectRef.current.value; 
   //   console.log('選擇行政區', value);
   //   this.props.handleChange(value);
   // }
-
   render () {
     const { dropMenu, handleChange } = this.props;
     // const dropMenu = this.props.dropMenu;

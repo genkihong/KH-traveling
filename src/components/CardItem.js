@@ -1,17 +1,13 @@
 import React from 'react';
 import { Card, Col, CardBody, CardImgOverlay } from 'reactstrap';
 
-
-
 const CardItem = ({Name, Zone, Opentime, Add, Tel, Ticketinfo, Picture}) => {
   // const isInfo = ticketinfo(Ticketinfo);
-
   const getStyle = () => {
     return {
       display: Ticketinfo ? 'block' : 'none'
     }
-  };
-  
+  }
   return (
     <>
     <Col md="6" className="mb-5">
