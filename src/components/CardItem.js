@@ -1,24 +1,10 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, CardBody, CardImgOverlay } from 'reactstrap';
 
 
 
 const CardItem = ({Name, Zone, Opentime, Add, Tel, Ticketinfo, Picture}) => {
-  // 先宣告 ticketinfo 函式
-  // const ticketinfo = (Ticketinfo) => {
-  //   let info = '';
-  //   Ticketinfo ? info = 'd-block' : info = 'd-none';
-  //   return info;
-  // };
-
-  // 再執行 ticketinfo()
   // const isInfo = ticketinfo(Ticketinfo);
-
-  // const isInfo = (Ticketinfo) => {
-  //   let info = '';
-  //   Ticketinfo ? info = 'd-block' : info = 'd-none';
-  //   return info;
-  // };
 
   const getStyle = () => {
     return {
@@ -28,17 +14,17 @@ const CardItem = ({Name, Zone, Opentime, Add, Tel, Ticketinfo, Picture}) => {
   
   return (
     <>
-      <Col md={6} className="mb-5">
+    <Col md="6" className="mb-5">
         <Card className="box-shadow h-100">
           <div className="bg-cover text-white" style={{height: '200px', backgroundImage: `url(${Picture})`}}>
-            <Card.ImgOverlay>
+            <CardImgOverlay>
               <div className="d-flex justify-content-between" style={{backgroundColor: 'rgba(0, 0, 0, .1)'}}>
                 <h4 className="mb-0">{Name}</h4>
                 <span>{Zone}</span>
               </div>
-            </Card.ImgOverlay>
+            </CardImgOverlay>
           </div>    
-          <Card.Body>
+          <CardBody>
             <div className="d-flex align-items-center mb-3">
               <img src="https://upload.cc/i1/2019/02/02/WKTgeN.png" weight="18" height="18" alt={Name} />
               <span className="ml-2">{Opentime}</span>
@@ -57,18 +43,19 @@ const CardItem = ({Name, Zone, Opentime, Add, Tel, Ticketinfo, Picture}) => {
                 <span className="ml-2">{Ticketinfo}</span>
               </div>               
             </div>
-          </Card.Body>
+          </CardBody>
         </Card>
       </Col>
     </>    
   );
 }
+// 在這裡也可以宣告函式
 // const isInfo = (Ticketinfo) => {
 //   let info = '';
 //   Ticketinfo ? info = 'd-block' : info = 'd-none';
 //   return info;
 // };
-// 在這裡也可以宣告 ticketinfo()
+// 
 // const ticketinfo = (Ticketinfo) => {
 //   let info = '';
 //   Ticketinfo ? info = 'd-block' : info = 'd-none';

@@ -2,25 +2,25 @@ import React from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import HotZone from './components/HotZone';
-import CardList from './components/CardList';
-import Pagination from './components/Pagination';
+import Paginations from './components/Paginations';
 import Footer from './components/Footer';
+// import CardList from './components/CardList';
 
 import './App.css';
 
 class App extends React.Component {
   state = {
     data: [],        // All行政區資料
-    filterData: [],  // 過濾後資料
+    selectData: [],  // 過濾後資料
     currentZone: '', // 下拉式選單選項
     dropMenu: [],    // 下拉式選單
-    pages: 0,
-    currentPage: 0
+    currentPage: 1,
+    perPage: 6
   };
   
   componentDidMount() {
     this.getData();
-  };
+  }
   
   getData = async () => {
     const url = 'https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97';
@@ -32,7 +32,7 @@ class App extends React.Component {
     });
     this.UniZone();
     this.FilterData('全部行政區');
-  };
+  }
 
   // 取得所有行政區
   UniZone = () => {
@@ -43,37 +43,27 @@ class App extends React.Component {
       return array.indexOf(value) === index;    
     });
     this.setState({dropMenu: Zone});
-  };
+  }
   // 選擇行政區
   handleChange = (select) => {
-    console.log('handleChange', select);
-    this.setState({
-      currentZone: select,
-    });
+    // console.log('handleChange', select);
     this.FilterData(select);
-  };
+  }
   // 熱門行政區
   handleClick = (select, e) => {
-    console.log('handleClick', select);
+    // console.log('handleClick', select);
     e.preventDefault();
     this.FilterData(select);
-  };
-  // 點擊分頁
-  handleCurrentPage = (i, e) => {
-    e.preventDefault();
-    console.log('現在是#', i);
-    this.setState(
-      (state) => {
-        return {
-          currentPage: i - 1,
-          // filterData: state.filterData[state.currentPage]
-        };  
-      }
-    );
-  };
+  }
+  handleClickPage = (event) => {
+    event.preventDefault();
+    // console.log('id', event.target.id);
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
+  }  
   // 過濾資料
-  FilterData = (select, page) => {
-    // console.log('FilterData', select);
+  FilterData = (select) => {
     let newData = [];
       // 過濾行政區
     if (select === '全部行政區' || !select) {
@@ -81,32 +71,18 @@ class App extends React.Component {
     } else {
       newData = this.state.data.filter((item) => {
           return select === item.Zone;
-      });            
+      });
     }
-    // this.setState({
-    //   filterData: newData
-    // });
-    // console.log(newData);
-
-    // 分頁
-    //pagination = [[], [], [], ...]
-    const pagination = [];
-    newData.forEach((value, i) => {
-      if(i % 6 === 0) { // 每 6 筆資料就增加一個空分頁
-        pagination.push([]); 
-      }
-      const page = parseInt(i / 6); // 每一分頁內有 6 筆資料
-      pagination[page].push(value);
-    });
-    console.log('總共幾頁', pagination);
+    // console.log('行政區', newData);
     this.setState({
-      filterData: pagination[0],
-      pages: pagination.length, // 分頁數量
-      currentZone: select
-    });
-  };
-
+      selectData: newData,
+      currentZone: select,
+      currentPage: 1
+    });  
+  }
+  
   render() {
+    
     return (
       <div>
         <Header
@@ -116,14 +92,16 @@ class App extends React.Component {
         <HotZone
           handleClick={this.handleClick}
         />
-        <CardList
-          FilterData={this.state.filterData}
-          CurrentZone={this.state.currentZone}
-        />
-        <Pagination
-          CurrentPage={this.state.currentPage}
-          Pages={this.state.pages}
-          handleCurrentPage={this.handleCurrentPage}
+        {/* <CardList 
+          selectData={this.state.selectData}
+          currentZone={this.state.currentZone}
+        />     */}
+        <Paginations
+          selectData={this.state.selectData}
+          currentZone={this.state.currentZone}
+          currentPage={this.state.currentPage}
+          perPage={this.state.perPage}
+          handleClickPage={this.handleClickPage}
         />
         <Footer />
       </div>
