@@ -34,8 +34,8 @@ const Paginations = ({selectData, currentZone, currentPage, perPage, handleClick
   //     </PaginationItem>
   //   );
   // // });
-  console.log('總共有:', totalPage, '頁');
-  console.log('第', currentPage, '頁');
+  // console.log('總共有:', totalPage, '頁');
+  // console.log('第', currentPage, '頁');
 
   return (
     <>
